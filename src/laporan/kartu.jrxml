@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="421" pageHeight="297" orientation="Landscape" columnWidth="381" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="51b19704-23ea-4d0a-b7ae-2e569c19cc55">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="kode" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     pasien.`kd_pasien` AS pasien_kd_pasien,
+     pasien.`nama_pasien` AS pasien_nama_pasien,
+     pasien.`jeniskelamin` AS pasien_jeniskelamin,
+     pasien.`goldar` AS pasien_goldar,
+     pasien.`telepon` AS pasien_telepon,
+     pasien.`email` AS pasien_email,
+     pasien.`alamat` AS pasien_alamat
+FROM
+     `pasien` pasien
+WHERE
+ pasien.`kd_pasien`=$P{kode}]]>
+	</queryString>
+	<field name="pasien_kd_pasien" class="java.lang.String"/>
+	<field name="pasien_nama_pasien" class="java.lang.String"/>
+	<field name="pasien_jeniskelamin" class="java.lang.String"/>
+	<field name="pasien_goldar" class="java.lang.String"/>
+	<field name="pasien_telepon" class="java.lang.String"/>
+	<field name="pasien_email" class="java.lang.String"/>
+	<field name="pasien_alamat" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="202" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="71" width="114" height="15" forecolor="#736343" uuid="33da6f5a-18af-49eb-a210-9982a7025a0c"/>
+				<text><![CDATA[Kode Pasien]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="126" y="68" width="114" height="15" uuid="5456d343-8232-4fdb-8c65-ba3b348ec626"/>
+				<textFieldExpression><![CDATA[$F{pasien_kd_pasien}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="0" y="92" width="114" height="15" forecolor="#736343" uuid="ab18a1ad-a802-4297-802f-805da013402e"/>
+				<text><![CDATA[Nama Pasien]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="126" y="90" width="114" height="15" uuid="702a3c80-fb1d-499e-b7ae-079122a2f42c"/>
+				<textFieldExpression><![CDATA[$F{pasien_nama_pasien}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="0" y="114" width="114" height="15" forecolor="#736343" uuid="332cc9ff-0aff-4464-84c6-b1420b6d0174"/>
+				<text><![CDATA[Jenis Kelamin]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="126" y="114" width="114" height="15" uuid="229e3697-eeb5-4352-845a-2826de3d4a69"/>
+				<textFieldExpression><![CDATA[$F{pasien_jeniskelamin}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="0" y="141" width="114" height="15" forecolor="#736343" uuid="09520cf0-a690-4b0f-9b3d-30a740f5d5a0"/>
+				<text><![CDATA[Telepon]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="126" y="141" width="114" height="15" uuid="a81674fd-2b52-46cf-892e-369771c7e040"/>
+				<textFieldExpression><![CDATA[$F{pasien_telepon}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="0" y="161" width="114" height="15" forecolor="#736343" uuid="b8dea638-bf20-409a-8698-50a3dc95b4de"/>
+				<text><![CDATA[Email]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="126" y="162" width="114" height="15" uuid="a0125e78-f921-4339-bda2-16848bd075e0"/>
+				<textFieldExpression><![CDATA[$F{pasien_email}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="3" y="183" width="114" height="15" forecolor="#736343" uuid="c14ad060-3d0d-4a1b-a174-34e2138d96af"/>
+				<text><![CDATA[Alamat]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="126" y="183" width="114" height="15" uuid="3591056b-b1ed-41eb-af61-5e8e87771ddb"/>
+				<textFieldExpression><![CDATA[$F{pasien_alamat}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="65" width="380" height="1" uuid="3370cc6a-2ca9-4c4a-ad96-bc70556a5674"/>
+			</line>
+			<image>
+				<reportElement x="29" y="4" width="329" height="60" uuid="1b473a57-026a-4d16-955a-4520d8d6aea1"/>
+				<imageExpression><![CDATA[new javax.swing.ImageIcon(getClass().getResource("/Image/kartu.jpg")).getImage()]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1" uuid="d044f55a-ee97-4817-bb10-105bab9ad0b9"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="-136" y="-1" width="531" height="15" uuid="6234fa59-9092-4405-886a-40dc0913172a"/>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="310c548f-2f59-4837-8233-16a712f1a579"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="99" y="5" width="188" height="20" uuid="2f3e822a-0acf-4b1d-b578-cd1d96b3e3c4"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Bawalah Kartu ini Ketika Berobat]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
